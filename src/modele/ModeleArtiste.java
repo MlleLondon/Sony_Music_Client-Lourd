@@ -1,11 +1,11 @@
-package modele;
+package src.modele;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-import controleur.Artiste;
+import src.controleur.Artiste;
 
 public class ModeleArtiste {
 	private static Bdd uneBdd = new Bdd ("localhost", "sony_music_CL", "root", "");
@@ -27,7 +27,7 @@ public class ModeleArtiste {
 			unStat.close();
 			uneBdd.seDeconnecter();
 		}catch(SQLException exp) {
-			System.out.println("Erreur d'exécution de : "+requete);
+			System.out.println("Erreur d'exÃ©cution de : "+requete);
 		}
 	}
 	
@@ -39,13 +39,18 @@ public class ModeleArtiste {
 			Statement unStat= uneBdd.getMaConnexion().createStatement();
 			ResultSet desResultats=unStat.executeQuery(requete);
 			
-			//Parcourir les résultats et construire des objets
+			//Parcourir les rÃ©sultats et construire des objets
 			while(desResultats.next() ) {
 				Artiste unArtiste = new Artiste(
-						desResultats.getInt("iduser"), desResultats.getString("nom"),
-						desResultats.getString("email"), desResultats.getString("mdp"),
-						desResultats.getString("telephone"), desResultats.getString("prenom"),
-						desResultats.getString("nomDeScene"), desResultats.getString("typePrincipal"),
+						desResultats.getInt("iduser"),
+						desResultats.getString("nom"),
+						desResultats.getString("email"),
+						desResultats.getString("mdp"),
+						desResultats.getString("telephone"),
+						desResultats.getString("role"),
+						desResultats.getString("prenom"),
+						desResultats.getString("nomDeScene"), 
+						desResultats.getString("typePrincipal"),
 					    desResultats.getInt("idagent"));
 				lesArtistes.add(unArtiste); 
 			}
@@ -68,7 +73,7 @@ public class ModeleArtiste {
 			unStat.close();
 			uneBdd.seDeconnecter();
 		}catch(SQLException exp) {
-			System.out.println("Erreur d'exécution de : "+requete);
+			System.out.println("Erreur d'exÃ©cution de : "+requete);
 		}
 	}
 	
@@ -90,7 +95,7 @@ public class ModeleArtiste {
 			unStat.close();
 			uneBdd.seDeconnecter();
 		}catch(SQLException exp) {
-			System.out.println("Erreur d'exécution de : "+requete);
+			System.out.println("Erreur d'exÃ©cution de : "+requete);
 		}
 	}
 	public static Artiste selectWhereArtiste (int iduser) 
@@ -106,7 +111,7 @@ public class ModeleArtiste {
 				 unArtiste = new Artiste(
 						 unResultat.getInt("iduser"), unResultat.getString("nom"),
 						 unResultat.getString("email"), unResultat.getString("mdp"),
-						 unResultat.getString("telephone"), unResultat.getString("prenom"),
+						 unResultat.getString("telephone"), unResultat.getString("role"), unResultat.getString("prenom"),
 						 unResultat.getString("nomDeScene"), unResultat.getString("typePrincipal"),
 						 unResultat.getInt("idagent")
 						);
@@ -114,7 +119,7 @@ public class ModeleArtiste {
 			unStat.close();
 			uneBdd.seDeconnecter();
 		}catch(SQLException exp) {
-			System.out.println("Erreur d'exécution de : "+requete);
+			System.out.println("Erreur d'exÃ©cution de : "+requete);
 		}
 		return unArtiste;
 	}

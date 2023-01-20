@@ -1,11 +1,11 @@
-package modele;
+package src.modele;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-import controleur.Agent;
+import src.controleur.Agent;
 
 public class ModeleAgent {
 	private static Bdd uneBdd = new Bdd ("localhost", "sony_music_CL", "root", "");
@@ -26,7 +26,7 @@ public class ModeleAgent {
 			unStat.close();
 			uneBdd.seDeconnecter();
 		}catch(SQLException exp) {
-			System.out.println("Erreur d'exécution de : "+requete);
+			System.out.println("Erreur d'exÃ©cution de : "+requete);
 		}
 	}
 	
@@ -37,12 +37,12 @@ public class ModeleAgent {
 			uneBdd.seConnecter();
 			Statement unStat= uneBdd.getMaConnexion().createStatement();
 			ResultSet desResultats=unStat.executeQuery(requete);
-			//Parcourir les résultats et construire des objets
+			//Parcourir les rÃ©sultats et construire des objets
 			while(desResultats.next() ) {
 				Agent unAgent = new Agent(
 						desResultats.getInt("iduser"), desResultats.getString("nom"),
 						desResultats.getString("email"), desResultats.getString("mdp"),
-						desResultats.getString("telephone"), desResultats.getString("prenom"),
+						desResultats.getString("telephone"), desResultats.getString("role"), desResultats.getString("prenom"),
 						desResultats.getString("dateEmbauche"), desResultats.getInt("idLabel"));
 				lesAgents.add(unAgent); 
 			}
@@ -65,7 +65,7 @@ public class ModeleAgent {
 			unStat.close();
 			uneBdd.seDeconnecter();
 		}catch(SQLException exp) {
-			System.out.println("Erreur d'exécution de : "+requete);
+			System.out.println("Erreur d'exÃ©cution de : "+requete);
 		}
 	}
 	
@@ -86,7 +86,7 @@ public class ModeleAgent {
 			unStat.close();
 			uneBdd.seDeconnecter();
 		}catch(SQLException exp) {
-			System.out.println("Erreur d'exécution de : "+requete);
+			System.out.println("Erreur d'exÃ©cution de : "+requete);
 		}
 	}
 	public static Agent selectWhereAgent (int iduser) 
@@ -102,14 +102,14 @@ public class ModeleAgent {
 				 unAgent = new Agent(
 						 unResultat.getInt("iduser"), unResultat.getString("nom"),
 						 unResultat.getString("email"), unResultat.getString("mdp"),
-						 unResultat.getString("telephone"), unResultat.getString("prenom"),
+						 unResultat.getString("telephone"),unResultat.getString("role"), unResultat.getString("prenom"),
 						 unResultat.getString("dateEmbauche"), unResultat.getInt("idLabel")
 						);
 			}
 			unStat.close();
 			uneBdd.seDeconnecter();
 		}catch(SQLException exp) {
-			System.out.println("Erreur d'exécution de : "+requete);
+			System.out.println("Erreur d'exÃ©cution de : "+requete);
 		}
 		return unAgent;
 	}
@@ -126,14 +126,14 @@ public class ModeleAgent {
 				 unAgent = new Agent(
 						 unResultat.getInt("iduser"), unResultat.getString("nom"),
 						 unResultat.getString("email"), unResultat.getString("mdp"),
-						 unResultat.getString("telephone"), unResultat.getString("prenom"),
+						 unResultat.getString("telephone"),unResultat.getString("role"), unResultat.getString("prenom"),
 						 unResultat.getString("dateEmbauche"), unResultat.getInt("idLabel")
 						);
 			}
 			unStat.close();
 			uneBdd.seDeconnecter();
 		}catch(SQLException exp) {
-			System.out.println("Erreur d'exécution de : "+requete);
+			System.out.println("Erreur d'exÃ©cution de : "+requete);
 		}
 		return unAgent;
 	}

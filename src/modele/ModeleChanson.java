@@ -1,11 +1,11 @@
-package modele;
+package src.modele;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-import controleur.Chanson;
+import src.controleur.Chanson;
 
 public class ModeleChanson {
 	private static Bdd uneBdd = new Bdd ("localhost", "sony_music_CL", "root", "");
@@ -24,7 +24,7 @@ public class ModeleChanson {
 			unStat.close();
 			uneBdd.seDeconnecter();
 		}catch(SQLException exp) {
-			System.out.println("Erreur d'exécution de : "+requete);
+			System.out.println("Erreur d'exï¿½cution de : "+requete);
 		}
 	}
 	
@@ -36,7 +36,7 @@ public class ModeleChanson {
 			Statement unStat= uneBdd.getMaConnexion().createStatement();
 			ResultSet desResultats=unStat.executeQuery(requete);
 			
-			//Parcourir les résultats et construire des objets
+			//Parcourir les rï¿½sultats et construire des objets
 			while(desResultats.next() ) {
 				Chanson uneChanson = new Chanson(
 						desResultats.getInt("idchanson"), desResultats.getString("titre"),
@@ -63,7 +63,7 @@ public class ModeleChanson {
 			unStat.close();
 			uneBdd.seDeconnecter();
 		}catch(SQLException exp) {
-			System.out.println("Erreur d'exécution de : "+requete);
+			System.out.println("Erreur d'exï¿½cution de : "+requete);
 		}
 	}
 	
@@ -81,7 +81,7 @@ public class ModeleChanson {
 			unStat.close();
 			uneBdd.seDeconnecter();
 		}catch(SQLException exp) {
-			System.out.println("Erreur d'exécution de : "+requete);
+			System.out.println("Erreur d'exï¿½cution de : "+requete);
 		}
 	}
 	public static Chanson selectWhereChanson (int idchanson) 
@@ -102,7 +102,7 @@ public class ModeleChanson {
 			unStat.close();
 			uneBdd.seDeconnecter();
 		}catch(SQLException exp) {
-			System.out.println("Erreur d'exécution de : "+requete);
+			System.out.println("Erreur d'exï¿½cution de : "+requete);
 		}
 		return uneChanson;
 	}

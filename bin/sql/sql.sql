@@ -10,7 +10,7 @@ create table user(
     email varchar(255),
     mdp varchar(255),
     telephone varchar(50),
-    role enum("admin", "artiste", "partenaire", "agent", "label"),
+    role enum("admin", "artiste", "partenaere", "agent", "label"),
     primary key (iduser)
 );
 

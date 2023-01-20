@@ -1,29 +1,29 @@
-package controleur;
+package src.controleur;
 
 import java.util.ArrayList;
 
-import modele.ModeleArtiste;
+import src.modele.ModeleArtiste;
 
 
 public class C_Artiste {
 	public static void insertIntervention (Artiste unArtiste) {
-		//on controle les données
+		//on controle les donnï¿½es
 		ModeleArtiste.insertArtiste(unArtiste);
 	}
 	public static ArrayList<Artiste> selectAllArtistes() {
-		//on controle les données
+		//on controle les donnï¿½es
 		return ModeleArtiste.selectAllArtistes();
 	}
 	public static void deleteArtiste (int idinter) {
-		//on controle les données
+		//on controle les donnï¿½es
 		ModeleArtiste.deleteArtiste(idinter);;
 	}
 	public static void updateArtiste (Artiste unArtiste) {
-		//on controle les données
+		//on controle les donnï¿½es
 		ModeleArtiste.updateArtiste(unArtiste);
 	}
 	public static Artiste selectWhereArtiste(int idArtiste) {
-		//on controle les données
+		//on controle les donnï¿½es
 		return ModeleArtiste.selectWhereArtiste(idArtiste);
 	}
 	

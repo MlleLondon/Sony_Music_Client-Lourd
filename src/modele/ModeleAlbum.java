@@ -1,11 +1,11 @@
-package modele;
+package src.modele;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-import controleur.Album;
+import src.controleur.Album;
 
 public class ModeleAlbum {
 	private static Bdd uneBdd = new Bdd ("localhost", "sony_music_CL", "root", "");
@@ -22,7 +22,7 @@ public class ModeleAlbum {
 			unStat.close();
 			uneBdd.seDeconnecter();
 		}catch(SQLException exp) {
-			System.out.println("Erreur d'exécution de : "+requete);
+			System.out.println("Erreur d'execution de : "+requete);
 		}
 	}
 	
@@ -34,7 +34,7 @@ public class ModeleAlbum {
 			Statement unStat= uneBdd.getMaConnexion().createStatement();
 			ResultSet desResultats=unStat.executeQuery(requete);
 			
-			//Parcourir les résultats et construire des objets
+			//Parcourir les rï¿½sultats et construire des objets
 			while(desResultats.next() ) {
 				Album unAlbum = new Album(
 						desResultats.getInt("idalbum"), desResultats.getString("nom"),
@@ -60,7 +60,7 @@ public class ModeleAlbum {
 			unStat.close();
 			uneBdd.seDeconnecter();
 		}catch(SQLException exp) {
-			System.out.println("Erreur d'exécution de : "+requete);
+			System.out.println("Erreur d'exï¿½cution de : "+requete);
 		}
 	}
 	
@@ -77,7 +77,7 @@ public class ModeleAlbum {
 			unStat.close();
 			uneBdd.seDeconnecter();
 		}catch(SQLException exp) {
-			System.out.println("Erreur d'exécution de : "+requete);
+			System.out.println("Erreur d'exï¿½cution de : "+requete);
 		}
 	}
 	public static Album selectWhereAlbum (int idalbum) 
@@ -97,7 +97,7 @@ public class ModeleAlbum {
 			unStat.close();
 			uneBdd.seDeconnecter();
 		}catch(SQLException exp) {
-			System.out.println("Erreur d'exécution de : "+requete);
+			System.out.println("Erreur d'exï¿½cution de : "+requete);
 		}
 		return unAlbum;
 	}

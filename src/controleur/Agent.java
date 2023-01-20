@@ -1,11 +1,12 @@
-package controleur;
+package src.controleur;
 
 public class Agent {
 	private int iduser, idlabel;
 	private String nom, email, mdp ,telephone, role,prenom, dateEmbauche;
 	
 	public Agent(int iduser, String nom, String email, String mdp, String telephone, String role, String prenom,
-			int idlabel) {
+		String dateEmbauche, int idlabel) 
+	{
 		this.iduser = iduser;
 		this.nom = nom;
 		this.email = email;

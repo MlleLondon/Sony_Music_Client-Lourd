@@ -1,12 +1,11 @@
-package controleur;
+package src.controleur;
 
 public class Artiste {
 	private int iduser, idagent;
 	private String nom, email, mdp ,telephone, role, prenom, nomDeScene, typePrincipal;
 	
-	public Artiste(int iduser,  String nom, String email, String mdp, String telephone, String role,
-			String prenom, String nomDeScene, int idagent) 
-	{
+	public Artiste(int iduser, String nom, String email, String mdp, String telephone, String role, String prenom,
+			String nomDeScene, String typePrincipal, int idagent) {
 		this.iduser = iduser;
 		this.nom = nom;
 		this.email = email;
@@ -18,11 +17,8 @@ public class Artiste {
 		this.typePrincipal = typePrincipal;
 		this.idagent = idagent;
 	}
-	
-	public Artiste(  String nom, String email, String mdp, String telephone, String role,
-			String prenom, String nomDeScene, String typePrincipal, int idagent) 
-	{
-		
+	public Artiste( String nom, String email, String mdp, String telephone, String role, String prenom,
+			String nomDeScene, String typePrincipal, int idagent) {
 		this.nom = nom;
 		this.email = email;
 		this.mdp = mdp;
@@ -33,10 +29,8 @@ public class Artiste {
 		this.typePrincipal = typePrincipal;
 		this.idagent = idagent;
 	}
-	
-	public Artiste() 
-	{
-		this.iduser=0;
+	public Artiste() {
+		this.iduser = 0;
 		this.nom = "";
 		this.email = "";
 		this.mdp = "";
@@ -47,7 +41,6 @@ public class Artiste {
 		this.typePrincipal = "";
 		this.idagent = 0;
 	}
-
 	public int getIduser() {
 		return iduser;
 	}
