@@ -18,12 +18,6 @@ import controleur.Agent;
 import controleur.C_Agent;
 import controleur.Sony_Music;
 
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.JPasswordField;
-import javax.swing.JTextField;
-
 public class VueConnexion extends JFrame implements ActionListener, KeyListener{
     private JTextField txtEmail= new JTextField();
 	private JPasswordField txtMdp= new JPasswordField();
