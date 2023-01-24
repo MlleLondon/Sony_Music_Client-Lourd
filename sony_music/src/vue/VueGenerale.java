@@ -11,12 +11,20 @@ import controleur.Sony_Music;
 
 public class VueGenerale extends JFrame implements ActionListener{
 	private JPanel panelMenu= new JPanel();
-	private JButton btClients= new JButton("Gestion Clients");
-	private JButton btTechniciens= new JButton("Gestion Techniciens");
-	private JButton btInterventions= new JButton("Gestion Interventions");
-	private JButton btStats= new JButton("Statistiques");
+	private JButton btAgents= new JButton("Gest. Agents");
+	private JButton btAlbums= new JButton("Gest. Albums");
+	private JButton btArtistes= new JButton("Gest. Artistes");
+	private JButton btChansons= new JButton("Gest. Chansons");
+	private JButton btCategories= new JButton("Gest. Categories");
 	private JButton btProfil= new JButton("Mon Profil");
 	private JButton btQuitter= new JButton("Quitter");
+	
+	private static PanelProfil unPanelProfil= new PanelProfil();
+	private static PanelAgents unPanelAgent= new PanelAgents();
+	private static PanelAlbums unPanelAlbum= new PanelAlbums();
+	private static PanelArtistes unPanelArtiste= new PanelArtistes();
+	private static PanelChansons unPanelChanson= new PanelChansons();
+	private static PanelCategories unPanelCategorie= new PanelCategories();
 	
 	public VueGenerale() {
 		this.setTitle("Gestion des interventions");
@@ -30,26 +38,32 @@ public class VueGenerale extends JFrame implements ActionListener{
 		this.panelMenu.setBounds(100, 20, 1000, 40);
 		this.panelMenu.setBackground(new Color(1, 89, 162));
 		//1 lignes sur 5 colonnes
-		this.panelMenu.setLayout(new GridLayout(1, 6));
+		this.panelMenu.setLayout(new GridLayout(1, 7));
 		this.panelMenu.add(this.btProfil);
-		this.panelMenu.add(this.btClients);
-		this.panelMenu.add(this.btTechniciens);
-		this.panelMenu.add(this.btInterventions);
-		this.panelMenu.add(this.btStats);
+		this.panelMenu.add(this.btAgents);
+		this.panelMenu.add(this.btAlbums);
+		this.panelMenu.add(this.btArtistes);
+		this.panelMenu.add(this.btChansons);
+		this.panelMenu.add(this.btCategories);
 		this.panelMenu.add(this.btQuitter);
 		this.add(this.panelMenu);
 		
 		//Rendre les boutons ecoutables
 		this.btQuitter.addActionListener(this);
-		this.btClients.addActionListener(this);
+		this.btAgents.addActionListener(this);
 		this.btProfil.addActionListener(this);
-		this.btTechniciens.addActionListener(this);
-		this.btInterventions.addActionListener(this);
-		this.btStats.addActionListener(this);
+		this.btAlbums.addActionListener(this);
+		this.btArtistes.addActionListener(this);
+		this.btChansons.addActionListener(this);
+		this.btCategories.addActionListener(this);
 		
 		//Insertion des paneaux dans la fenêtre
-		
-		
+		this.add(unPanelProfil);
+		this.add(unPanelAgent);
+		this.add(unPanelAlbum);
+		this.add(unPanelArtiste);
+		this.add(unPanelChanson);
+		this.add(unPanelCategorie);
 		
 		this.setVisible(false);
 	}
@@ -59,6 +73,20 @@ public class VueGenerale extends JFrame implements ActionListener{
 	
 	public static void activerPanel(int choix) {
 		//Ajouter les cas de visibilité des panels
+		unPanelProfil.setVisible(false);
+		unPanelAgent.setVisible(false);
+		unPanelAlbum.setVisible(false);
+		unPanelArtiste.setVisible(false);
+		unPanelChanson.setVisible(false);
+		unPanelCategorie.setVisible(false);
+		switch(choix) {
+		case 1: unPanelProfil.setVisible(true); break;
+		case 2: unPanelAgent.setVisible(true); break;
+		case 3: unPanelAlbum.setVisible(true); break;
+		case 4: unPanelArtiste.setVisible(true); break;
+		case 5: unPanelChanson.setVisible(true); break;
+		case 6: unPanelCategorie.setVisible(true); break;
+		}
 	}
 	
 	@Override
@@ -74,17 +102,20 @@ public class VueGenerale extends JFrame implements ActionListener{
 		else if(e.getSource()== this.btProfil) {
 			activerPanel(1);
 		}
-		else if(e.getSource()== this.btClients) {
+		else if(e.getSource()== this.btAgents) {
 			activerPanel(2);
 		}
-		else if(e.getSource()== this.btTechniciens) {
+		else if(e.getSource()== this.btAlbums) {
 			activerPanel(3);
 		}
-		else if(e.getSource()== this.btInterventions) {
+		else if(e.getSource()== this.btArtistes) {
 			activerPanel(4);
 		}
-		else if(e.getSource()== this.btStats) {
+		else if(e.getSource()== this.btChansons) {
 			activerPanel(5);
+		}
+		else if(e.getSource()== this.btCategories) {
+			activerPanel(6);
 		}
 	}
 }
